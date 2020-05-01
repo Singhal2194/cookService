@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -18,19 +21,18 @@ import java.util.Map;
 
 import static com.cook.authentication.app.Constants.STATUS_FAILURE;
 
-@Component
 @RestController
 public class AuthenticationController {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
-
     @Autowired
     private LoginService loginService;
 
-    @POST
+//    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/login")
+//    @Path("/login")
+    @PostMapping(path = "/login")
     public Response login(LoginPayload loginPayload) {
 
         logger.info("Login Request with request object:{}",loginPayload);
