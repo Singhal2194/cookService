@@ -4,10 +4,13 @@ com/cook/authentication/model/CookEntity.class
 com/cook/authentication/dto/RegisterPayload.class
 com/cook/authentication/service/OtpService$1.class
 com/cook/authentication/service/OtpService.class
+com/cook/authentication/service/LoginService.class
+com/cook/authentication/app/Constants.class
 com/cook/authentication/controllers/CookDetailsController.class
 com/cook/authentication/repository/CookRepository.class
+com/cook/authentication/service/ValidationService.class
 com/cook/authentication/dto/LoginPayload.class
 com/cook/authentication/config/ConfigConstants.class
-com/cook/authentication/config/AppConfig.class
 com/cook/authentication/dto/CookDetails.class
+com/cook/authentication/controllers/AuthenticationController.class
 com/cook/authentication/client/SmsClient.class

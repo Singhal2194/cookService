@@ -7,10 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -28,12 +26,8 @@ public class AuthenticationController {
     @Autowired
     private LoginService loginService;
 
-//    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/login")
-    @PostMapping(path = "/login")
-    public Response login(LoginPayload loginPayload) {
+    @PostMapping(path = "/login",consumes = "application/json", produces = "application/json")
+    public @ResponseBody  Response login(LoginPayload loginPayload) {
 
         logger.info("Login Request with request object:{}",loginPayload);
 
@@ -43,7 +37,7 @@ public class AuthenticationController {
             return Response.status(400).entity(response).build();
         }
 
-        return Response.ok().entity(response).build();
+        return Response.ok().build();
 
 
     }
