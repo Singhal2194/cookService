@@ -1,13 +1,9 @@
 com/cook/authentication/CookServer.class
-com/cook/authentication/service/CookDetailsService.class
-com/cook/authentication/model/CookEntity.class
 com/cook/authentication/dto/RegisterPayload.class
 com/cook/authentication/service/OtpService$1.class
 com/cook/authentication/service/OtpService.class
 com/cook/authentication/service/LoginService.class
 com/cook/authentication/app/Constants.class
-com/cook/authentication/controllers/CookDetailsController.class
-com/cook/authentication/repository/CookRepository.class
 com/cook/authentication/service/ValidationService.class
 com/cook/authentication/dto/LoginPayload.class
 com/cook/authentication/config/ConfigConstants.class
