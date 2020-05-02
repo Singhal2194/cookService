@@ -6,14 +6,11 @@ import com.cook.authentication.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import java.util.Map;
 
@@ -26,10 +23,10 @@ public class AuthenticationController {
     @Autowired
     private LoginService loginService;
 
-    @PostMapping(path = "/login",consumes = "application/json", produces = "application/json")
-    public @ResponseBody  Response login(LoginPayload loginPayload) {
+    @PostMapping(path = "/login", consumes = "application/json", produces = "application/json")
+    public Response login(@Valid @RequestBody LoginPayload loginPayload) {
 
-        logger.info("Login Request with request object:{}",loginPayload);
+        logger.info("Login Request with request object:{}", loginPayload);
 
         Map<String, Object> response = loginService.login(loginPayload);
 
@@ -38,8 +35,5 @@ public class AuthenticationController {
         }
 
         return Response.ok().build();
-
-
     }
-
 }
